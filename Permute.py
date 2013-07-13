@@ -40,9 +40,9 @@ def permutations(iterable, r=None):
                 break
         else:
             return
-        
+
+import itertools
 def permsUsingItertools( iterable, r=None ):
-    import itertools
     return itertools.permutations(iterable,r)
     
 def __main__():
@@ -57,8 +57,7 @@ def __main__():
         print bytearray(perm_gen)
         
     print 'Using itertools to get 4 choose 2:'
-    import itertools
-    for perm_gen in itertools.permutations("abcd", 2):
+    for perm_gen in permsUsingItertools("abcd", 2):
         print bytearray( perm_gen )
 
 if __name__=='__main__':
