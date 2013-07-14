@@ -47,11 +47,16 @@ def reverseList( head ):
     
     return prev
 
-def printList( head ):
+def printList( head, maxCount=None ):
     curr = head
+    i = 0
     while curr!= None:
         print curr.data
         curr = curr.next
+        if maxCount:
+            if i==maxCount:
+                break
+            i+= 1
         
 def findLength( curr ):
     len = 0
@@ -93,6 +98,25 @@ def findOverlappingNode( head1, head2 ):
     
     return None
     
+    
+def detectCycleInList( head ):
+    # A list is cyclic if at some point in the list the pointer
+    # points back at another node already in the list
+    # Our strategy here is to use 2 pointers to go through the list.
+    # fastPtr skips two nodes, slowPtr follows every node
+    # if either pointer reaches end, we don't have a cycle 
+    slowPtr = head
+    if head.next:
+        fastPtr = head.next
+    
+    while fastPtr!=slowPtr and slowPtr.next!=None:
+        if fastPtr.next == None or slowPtr.next==None:
+            return None # No cycles
+        slowPtr = slowPtr.next
+        if fastPtr.next:
+            fastPtr = fastPtr.next.next
+    return slowPtr.next
+    
 
 if __name__=='__main__':
     head = Node(0)
@@ -125,5 +149,12 @@ if __name__=='__main__':
     print
     printList( head )
     
+    # Detect a cycle in head
+    cycleNode = detectCycleInList(head)
+    print 'Detecting a cycle in list without cycles ','None' if cycleNode==None else cycleNode.data
     
-        
+    head2.next.next.next.next.next.next = head2.next.next.next
+    cycleNode = detectCycleInList(head2)
+    printList(head2, 10)
+    print 'Detecting a cycle in list with cycle ', 'None' if cycleNode==None else cycleNode.data
+    
