@@ -1,7 +1,9 @@
 ''' 
 @author:  Arvind A. de Menezes Pereira
 @since:  Jul 13, 2013
-@summary: Building a singly-linked linked list and then reversing it.
+@summary: Building a singly-linked linked list and then reversing it. 
+          Detecting commonality in two singly-linked list. 
+          Detecting cycles in a singly-linked list.
 '''
 class Node:
     def __init__(self,data=None ):
