@@ -1,5 +1,8 @@
-''' Building a binary tree in Python and performing various types of traversals on it. '''
-
+''' 
+@author:  Arvind A. de Menezes Pereira
+@since:  Jul 13, 2013
+@summary: Building a binary tree in Python and performing various types of traversals on it. 
+'''
 class Node:
     def __init__(self,data):
         self.left = None

@@ -1,5 +1,9 @@
 #!/usr/bin/env python
-''' A few methods of producing permutations of a string '''
+''' 
+@author: Arvind A. de Menezes Pereira
+@since:  Jul 13, 2013
+@summary: A few methods of producing permutations of a string 
+'''
 
 def getPermutation( str, i, n, perms ):
     ''' A recursive formulation to get all the permutations
